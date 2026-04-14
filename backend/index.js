@@ -203,10 +203,10 @@ app.use(
   "/dashboard",
   express.static(path.join(__dirname, "../dashboard/dist")),
 );
-app.get("/dashboard/:path(*)", (req, res) => {
+app.get("/dashboard/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../dashboard/dist/index.html"));
 });
-app.get("/:path(*)", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 app.listen(PORT, () => {
